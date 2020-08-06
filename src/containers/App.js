@@ -1,25 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
+import moment from 'moment';
 import Channels from '../data/channels';
 import ChannelGroups from '../data/channelGroups';
 import ChannelSelect from '../components/ChannelSelect';
 import fetchingData from '../hooks/FetchingData';
 
-const getDateNow = () => {
-    let currentDate = new Date(),
-        month = '' + (currentDate.getMonth() + 1),
-        day = '' + currentDate.getDate(),
-        year = currentDate.getFullYear();
-    if (month.length < 2) month = `0${month}`;
-    if (day.length < 2) day = `0${day}`;
-
-    return [year, month, day].join('-');
-}
 
 function App() {
     const [ selectChannels, setSelectChannels ] = useState(Channels.slice(0, 3));
     const [ nowPlaying, setNowPlaying ] = useState(null);
-    const [ date, setDate ] = useState(getDateNow());
+    const [ date, setDate ] = useState(moment().format('YYYY-MM-DD'));
 
     const getSelect = selectValue => {
         if (selectValue) {
