@@ -8,10 +8,10 @@ const FetchingData = (urlParams) => {
 
 	let URL = null;
 
-
-	//https://port.hu/tvapi?channel_id=tvchannel-5&i_datetime_from=2020-08-06&i_datetime_to=2020-08-08
-	if(urlParams.channelID) {
-		URL = `${process.env.REACT_APP_PROXY_URL}${process.env.REACT_APP_URL}?date=${urlParams.date}${urlParams.channelID}`;
+	if(urlParams.dateFrom && urlParams.dateTo) {
+		URL = `${process.env.REACT_APP_URL}?i_datetime_from=${urlParams.dateFrom}&i_datetime_to=${urlParams.dateTo}${urlParams.channelID}`;
+	} else if(urlParams.channelID) {
+		URL = `${process.env.REACT_APP_URL}?date=${urlParams.date}${urlParams.channelID}`;
 	}
 
 	//console.log(URL);
