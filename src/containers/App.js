@@ -44,7 +44,7 @@ function App() {
         <div className="App">
             <Container>
                 {
-                    nowPlaying === null ? <Loading /> :
+                    nowPlayingData.loading !== true && nowPlaying !== null ?
                     <React.Fragment>
                         <ChannelSelect channels={Channels} select={getSelect} default={selectChannels}/>
                         <DatePicker
@@ -53,7 +53,7 @@ function App() {
                             onChange={date => setStartDate(date)}
                         />
                         <ChannelList channelsData={nowPlaying}/>
-                    </React.Fragment>
+                    </React.Fragment> : null
                 }
             </Container>
         </div>
