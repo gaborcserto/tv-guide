@@ -8,9 +8,9 @@ const programList = ({channel}) => {
 	));
 
 	return (
-		<Col>
-			<div>
-				<h2>{channel.name}</h2>
+		<Col sd={6} md={4} >
+			<div className="programList">
+				<h2 className="programList__title">{channel.name}</h2>
 				{ items }
 			</div>
 		</Col>

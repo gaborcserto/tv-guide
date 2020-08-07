@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col, Row } from 'react-bootstrap';
 import moment from 'moment';
 import ProgramProgress from './ProgramProgress';
 
@@ -19,9 +20,16 @@ const programList = ({programData}) => {
 
 	return (
 		<div className={`program${getStyle()}`}>
-			<h4>{programData.title}</h4>
-			<p>{programData.start_time}</p>
-			<p>{programData.short_description}</p>
+			<Row>
+				<Col xs={3}>
+					<p className="program__time">{programData.start_time}</p>
+				</Col>
+				<Col xs={9}>
+					<h4 className="program__title">{programData.title}</h4>
+					<p className="program__description">{programData.short_description}</p>
+				</Col>
+			</Row>
+			<div className="clearfix" />
 			{ getStyle() === ' live' ? <ProgramProgress start={programData.start_datetime} end={programData.end_datetime}/> : null }
 		</div>
 	)

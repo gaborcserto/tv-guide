@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Navbar } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import Channels from '../data/channels';
@@ -42,6 +42,11 @@ function App() {
 
     return (
         <div className="App">
+            <Navbar bg="dark" variant="dark" fixed="top">
+                <Navbar.Brand href="#home">
+                    Tv Műsor
+                </Navbar.Brand>
+            </Navbar>
             <Container>
                 {
                     nowPlayingData.loading !== true && nowPlaying !== null ?
@@ -53,7 +58,7 @@ function App() {
                             onChange={date => setStartDate(date)}
                         />
                         <ChannelList channelsData={nowPlaying}/>
-                    </React.Fragment> : null
+                    </React.Fragment> : <Loading />
                 }
             </Container>
         </div>

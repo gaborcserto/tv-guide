@@ -1,0 +1,61 @@
+.program {
+	background-color: $white;
+	border: 1px solid #dee2e6;
+	border-bottom: 0;
+	padding: 5px;
+	text-align: left;
+	transition: transform;
+	transition-duration: 0.25s;
+
+	&:hover {
+		border-bottom: 1px;
+		box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1);
+		transform: scale(1.02);
+	}
+
+	&:last-child {
+		border-bottom: 1px solid #dee2e6;
+	}
+
+	&.past {
+		display: none;
+	}
+
+	&.live {
+		background-color: #f0f0f0;
+	}
+
+	&__time {
+		color: $primary;
+		font-weight: bold;
+	}
+
+	&__title {
+		font-size: 16px;
+	}
+
+	&__description {
+		color: $dark;
+		font-size: 12px;
+	}
+
+	.progress {
+		background-color: $white;
+		border: 1px solid #dee2e6;
+		border-radius: 0;
+
+		&bar {
+			border-radius: 0;
+		}
+	}
+
+	&List {
+		&__title {
+			background-color: $primary;
+			color: $white;
+			font-size: 18px;
+			margin: 0;
+			padding: 10px 0;
+		}
+	}
+}
