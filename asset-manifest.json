@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/tv-guide/static/css/main.17dcd975.chunk.css",
+    "main.js": "/tv-guide/static/js/main.921cafad.chunk.js",
+    "main.js.map": "/tv-guide/static/js/main.921cafad.chunk.js.map",
+    "runtime-main.js": "/tv-guide/static/js/runtime-main.710eb3d5.js",
+    "runtime-main.js.map": "/tv-guide/static/js/runtime-main.710eb3d5.js.map",
+    "static/js/2.1ac9af78.chunk.js": "/tv-guide/static/js/2.1ac9af78.chunk.js",
+    "static/js/2.1ac9af78.chunk.js.map": "/tv-guide/static/js/2.1ac9af78.chunk.js.map",
+    "index.html": "/tv-guide/index.html",
+    "precache-manifest.676b761a5654b2093502548c1c492764.js": "/tv-guide/precache-manifest.676b761a5654b2093502548c1c492764.js",
+    "service-worker.js": "/tv-guide/service-worker.js",
+    "static/css/main.17dcd975.chunk.css.map": "/tv-guide/static/css/main.17dcd975.chunk.css.map",
+    "static/js/2.1ac9af78.chunk.js.LICENSE.txt": "/tv-guide/static/js/2.1ac9af78.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.710eb3d5.js",
+    "static/js/2.1ac9af78.chunk.js",
+    "static/css/main.17dcd975.chunk.css",
+    "static/js/main.921cafad.chunk.js"
+  ]
+}
