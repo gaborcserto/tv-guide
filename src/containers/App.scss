@@ -2,9 +2,55 @@
 @import "../components/Program/Program";
 
 .App {
-  text-align: center;
+	text-align: center;
 
-  .container {
-    margin-top: 56px;
-  }
+	.container {
+		margin-top: 56px;
+	}
+
+	.btn-date {
+		margin-right: 10px;
+	}
+
+	@include media-breakpoint-down(md) {
+		.rbt {
+			display: inline-block;
+			max-width: calc(100% - 118px);
+		}
+	}
+
+
+	@include media-breakpoint-down(sm) {
+		.container {
+			margin-top: 180px;
+		}
+
+		.navbar {
+			display: block;
+
+			&-expand {
+				flex-flow: unset;
+			}
+
+			.react-datepicker-wrapper {
+				margin-bottom: 5px;
+				width: 100%;
+			}
+
+			.rbt {
+				display: inline-block;
+				max-width: 100%;
+				width: 100%;
+
+				.rbt-input-multi {
+					width: 100%;
+				}
+			}
+		}
+
+		.btn-date {
+			margin: 0;
+			width: 100%;
+		}
+	}
 }

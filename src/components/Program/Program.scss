@@ -2,6 +2,7 @@
 	background-color: $white;
 	border: 1px solid #dee2e6;
 	border-bottom: 0;
+	//min-height: 100px;
 	padding: 5px;
 	text-align: left;
 	transition: transform;
@@ -18,7 +19,28 @@
 	}
 
 	&.past {
-		display: none;
+		border: 0;
+		height: 0;
+		opacity: 0;
+		min-height: 0;
+		padding: 0;
+		transition: all 0.25s;
+		visibility: hidden;
+
+		* {
+			color: $gray-400;
+		}
+
+		&.show {
+			background-color: $gray-100;
+			border: 1px solid #dee2e6;
+			border-bottom: 0;
+			height: auto;
+			opacity: 1;
+			padding: 5px;
+			transition: all 0.25s;
+			visibility: visible;
+		}
 	}
 
 	&.live {
@@ -50,6 +72,8 @@
 	}
 
 	&List {
+		margin-bottom: 16px;
+
 		&__title {
 			background-color: $primary;
 			color: $white;

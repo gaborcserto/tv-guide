@@ -1,15 +1,26 @@
-import React from 'react';
-import { Row } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Row, Button } from 'react-bootstrap';
 import ProgramList from '../Program/ProgramList';
 
-const channelList = props => {
+const ChannelList = props => {
+	const [ pastPrograms, setPastPrograms ] = useState(false);
+
+	const handlePastPrograms = (e) => {
+		setPastPrograms(!pastPrograms);
+	}
+
 	const items = props.channelsData.channels.map((data, index) => (
-		<ProgramList key={index} channel={data} />
+		<ProgramList key={index} channel={data} pastPrograms={pastPrograms}/>
 	));
 
 	return (
 		<React.Fragment>
 			<h1>Műsorok</h1>
+			<div>
+				<Button variant="link" onClick={handlePastPrograms}>
+					Korábbi műsorok {pastPrograms ? 'elrejtése' : 'mutatása'}
+				</Button>
+			</div>
 			<Row>
 				{ items }
 			</Row>
@@ -17,4 +28,4 @@ const channelList = props => {
 	)
 }
 
-export default channelList;
+export default ChannelList;

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Navbar } from 'react-bootstrap';
+import React, { useState, useEffect, forwardRef } from 'react';
+import { Container, Navbar, Button, Form, Nav } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import Channels from '../data/channels';
@@ -11,7 +11,7 @@ import fetchingData from '../hooks/FetchingData';
 
 
 function App() {
-    const [ selectChannels, setSelectChannels ] = useState(Channels.slice(0, 3));
+    const [ selectChannels, setSelectChannels ] = useState(Channels.slice(0, 4));
     const [ nowPlaying, setNowPlaying ] = useState(null);
     const [ startDate, setStartDate ] = useState(new Date());
 
@@ -34,6 +34,13 @@ function App() {
         date: moment(startDate).format('YYYY-MM-DD')
     });
 
+    const ref = React.createRef();
+    const CustomInput = forwardRef(({ onClick, value }, ref) => (
+        <Button onClick={onClick} className="btn-date">
+            {value}
+        </Button>
+    ));
+
     useEffect(() => {
         if (nowPlayingData.response !== null) {
             setNowPlaying(nowPlayingData.response);
@@ -46,17 +53,21 @@ function App() {
                 <Navbar.Brand href="#home">
                     Tv Műsor
                 </Navbar.Brand>
+                <Nav className="mr-auto" />
+                <Form inline>
+                    <DatePicker
+                        dateFormat="yyyy-MM-dd"
+                        selected={startDate}
+                        onChange={date => setStartDate(date)}
+                        customInput={<CustomInput  ref={ref}/>}
+                    />
+                    <ChannelSelect channels={Channels} select={getSelect} default={selectChannels}/>
+                </Form>
             </Navbar>
             <Container>
                 {
                     nowPlayingData.loading !== true && nowPlaying !== null ?
                     <React.Fragment>
-                        <ChannelSelect channels={Channels} select={getSelect} default={selectChannels}/>
-                        <DatePicker
-                            dateFormat="yyyy-MM-dd"
-                            selected={startDate}
-                            onChange={date => setStartDate(date)}
-                        />
                         <ChannelList channelsData={nowPlaying}/>
                     </React.Fragment> : <Loading />
                 }
